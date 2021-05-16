@@ -216,4 +216,13 @@ class LineRotateHolderView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : LineRotateHolderView {
+            val view : LineRotateHolderView = LineRotateHolderView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
