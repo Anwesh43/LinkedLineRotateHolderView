@@ -1,0 +1,3 @@
+include ':linerotateholderview'
+include ':app'
+rootProject.name = "LinkedLineRotateHolderView"
