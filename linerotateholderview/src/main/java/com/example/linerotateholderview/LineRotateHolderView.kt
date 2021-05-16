@@ -191,4 +191,27 @@ class LineRotateHolderView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineRotateHolderView) {
+
+        private val animator : Animator = Animator(view)
+        private val lrh : LineRotateHolder = LineRotateHolder(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lrh.draw(canvas, paint)
+            animator.animate {
+                lrh.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lrh.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
