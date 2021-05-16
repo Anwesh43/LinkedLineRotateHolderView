@@ -20,11 +20,11 @@ val colors : Array<Int> = arrayOf(
 }.toTypedArray()
 val lines : Int = 3
 val parts : Int = lines + 2
-val scGap : Float = 0.02f / parts
+val scGap : Float = 0.01f / parts
 val strokeFactor : Float = 90f
 val sizeFactor : Float = 6.9f
 val boxSizeFactor : Float = 4.2f
-val delay : Long = 20
+val delay : Long = 15
 val backColor : Int = Color.parseColor("#BDBDBD")
 
 fun Int.inverse() : Float = 1f / this
@@ -50,8 +50,8 @@ fun Canvas.drawLineRotateHolder(scale : Float, w : Float, h : Float, paint : Pai
         restore()
     }
     save()
-    translate((size * lines) / 2, (h / 2) * sf2)
-    drawRect(RectF(-sqSize / 2, 0f, sf1 * sqSize * 0.5f, sqSize), paint)
+    translate((size * lines) / 2, (h / 2 - sqSize) * sf2)
+    drawRect(RectF(-sqSize / 2, 0f, -sqSize / 2 + sf1 * sqSize, sqSize), paint)
     restore()
     restore()
 }
